@@ -13,9 +13,5 @@ class BBS:
 
 if __name__ == "__main__":
     bbs = BBS(7)
-    
-    # Prove that it's a bernoulli random variable - estimate confidence?
-    q = 0
-    for i in range(0,10000):
-        q += bbs.getRand()
-    print q
+    print bbs.getRand()
+
