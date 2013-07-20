@@ -7,7 +7,7 @@ class GaloisLFSR:
         
     def getRand(self):
         self.state = (self.state >> 1) ^ (-(self.state&0x01) & 0xB400)
-        return self.state
+        return self.state & 0x01
 
 
 class FibonacciLFSR:
@@ -18,16 +18,18 @@ class FibonacciLFSR:
     def getRand(self):
         bit = ((self.state >> 0) ^ (self.state >> 2) ^ (self.state >> 3) ^ (self.state >> 5)) & 0x01
         self.state = ((self.state >> 1) | (bit<<15)) & 0xFFFF
-        return self.state
+        return self.state & 0x01
     
 
 if __name__ == "__main__":
     # Test galois lfsr
     glfsr = GaloisLFSR(0xACE1)
-    assert(0xE270 == glfsr.getRand())
+    glfsr.getRand()
+    assert(0xE270 == glfsr.state)
     print "Galois LFSR test passed."
 
     # Test fibonacci lfsr
     flfsr = FibonacciLFSR(0xACE1)
-    assert(0x5670 == flfsr.getRand())
+    flfsr.getRand()
+    assert(0x5670 == flfsr.state)
     print "Fibonacci LFSR test passed."
