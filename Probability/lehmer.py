@@ -13,7 +13,7 @@ class Lehmer:
 
 def main():
     # Use Park-Miller MINSTD paramters
-    rng = Lehmer(19)
+    rng = Lehmer(19) # The seed must be coprime to the modulus n. 
     print rng.getRand()
     print rng.getRand()
     print rng.getRand()
