@@ -10,7 +10,7 @@ def lucas_lehmer(M):
     p = int(p)
     for i in range(0, p-2):
         s = ((s * s) - 2) % M
-        print s
+        #print s
     return (s==0)
 
 def main():
