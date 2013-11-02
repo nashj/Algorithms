@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 def sieve_of_eratosthenes(n):
-    # numbers = range(0, n+1)
-    prime = [1] * (n+1) # len(numbers)
+    prime = [1] * (n+1) 
     p = 2
     while p <= n:
         i = 2*p
