@@ -14,13 +14,9 @@ public:
     // Update mean
     mean = (num_samples * mean + x) / (num_samples + 1);
     sq_avg = (num_samples * sq_avg + x*x) / (num_samples + 1);
-    
+    // Update variance    
     variance = sq_avg - mean*mean; 
-
-    // Update variance
-
     num_samples += 1;
-    
   }
   
   float get_variance() {
